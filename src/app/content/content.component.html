@@ -1,0 +1,10 @@
+<div class="tab-content" id="tabContent" *ngIf="contents">
+    <div class="tab-pane fade show active" id="vnexpress" *ngFor="let content of contents.items">
+        <div style="margin-bottom:8px;">
+            <h3>{{content.title}}</h3>
+            <em>{{content.pubDate}}</em>
+            <p [innerHTML]="content.description"></p>
+            <a href="{{content.link}}" target="_blank">Read More</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-4">
+    <app-nav style="position: fixed; top: 0; width: 30%;"></app-nav>
+  </div>
+  <div class="col-8">
+    <app-content></app-content>
+  </div>
+</div>
+<a id="button" *ngIf="isShow" (click)="scrollTop()"></a>
