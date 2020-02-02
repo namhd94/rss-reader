@@ -12,7 +12,10 @@ export class NavComponent implements OnInit {
   news = [
     {name: 'VnExpress', active: true, link: 'https://vnexpress.net/rss/tin-moi-nhat.rss'},
     {name: 'Vietnamnet', active: false, link: 'https://vietnamnet.vn/rss/tin-moi-nong.rss'},
-    {name: 'Tuoitre', active: false, link: 'https://tuoitre.vn/rss/tin-moi-nhat.rss'}
+    {name: 'Tuoitre', active: false, link: 'https://tuoitre.vn/rss/tin-moi-nhat.rss'},
+    {name: 'Laodong', active: false, link: 'https://laodong.vn/rss/home.rss'},
+    {name: 'DoisongPhapluat', active: false, link: 'https://www.doisongphapluat.com/trang-chu.rss'},
+    {name: 'Thanhnien', active: false, link: 'https://thanhnien.vn/rss/home.rss'},
   ];
 
   constructor(
