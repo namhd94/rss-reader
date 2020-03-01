@@ -1,5 +1,23 @@
-<nav class="nav flex-column nav-pills" *ngFor="let item of news">
-    <a class="nav-link {{(item.active) ? 'active' : ''}}" id="{{item.name | lowercase}}-tab" href="#"
-        (click)="getLink(item.link)">{{item.name}}
-    </a>
+<header>
+    <div class="container">
+        <div class="wrap-header">
+            <div class="header-title">
+                <a class="title" href="#">RSS Reader</a>
+            </div>
+            <div class="toggle" (click)="toggle($event)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="nav flex-column nav-pills" [ngClass]="{'active': active}">
+    <ul>
+        <li *ngFor="let item of news">
+            <a class="nav-link {{(item.active) ? 'active' : ''}}" id="{{item.name | lowercase}}-tab" href="#"
+                (click)="getLink(item.link)">{{item.name}}
+            </a>
+        </li>
+    </ul>
 </nav>

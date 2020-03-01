@@ -18,6 +18,8 @@ export class NavComponent implements OnInit {
     {name: 'Thanhnien', active: false, link: 'https://thanhnien.vn/rss/home.rss'},
   ];
 
+  active = false;
+
   constructor(
     private eventBusService: EventBusService,
     private feedService: FeedService
@@ -39,4 +41,9 @@ export class NavComponent implements OnInit {
     });
   }
 
+  toggle(e) {
+    const target = e.target.closest('.toggle');
+    target.classList.toggle('change');
+    this.active = !this.active;
+  }
 }
