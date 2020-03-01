@@ -1,8 +1,5 @@
 <nav class="nav flex-column nav-pills" *ngFor="let item of news">
-    <a 
-        class="nav-link {{(item.active) ? 'active' : ''}}" 
-        id="{{item.name | lowercase}}-tab" 
-        href="#" (click)="getLink(item.link)"
-    >{{item.name}}  
+    <a class="nav-link {{(item.active) ? 'active' : ''}}" id="{{item.name | lowercase}}-tab" href="#"
+        (click)="getLink(item.link)">{{item.name}}
     </a>
 </nav>
