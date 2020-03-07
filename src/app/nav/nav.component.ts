@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { FeedService } from './../feed.service';
 import { EventBusService } from './../event-bus.service';
 import { Component, OnInit } from '@angular/core';
@@ -22,7 +23,8 @@ export class NavComponent implements OnInit {
 
   constructor(
     private eventBusService: EventBusService,
-    private feedService: FeedService
+    private feedService: FeedService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class NavComponent implements OnInit {
   }
 
   getLink(link: string) {
+    this.spinner.show();
     this.news.forEach(item => {
       item.active = false;
       if (item.link === link) {
@@ -38,6 +41,7 @@ export class NavComponent implements OnInit {
     });
     this.feedService.getFeedContent(link).subscribe(contents => {
       this.eventBusService.changeItem(contents);
+      setTimeout(() => { this.spinner.hide(); }, 1500);
     });
   }
 

@@ -1,5 +1,4 @@
 import { EventBusService } from './../event-bus.service';
-import { FeedService } from './../feed.service';
 import { Feed } from './../model/feed';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,7 +12,6 @@ export class ContentComponent implements OnInit {
   contents: Feed;
 
   constructor(
-    private feedService: FeedService,
     private eventBusService: EventBusService
   ) { }
 
