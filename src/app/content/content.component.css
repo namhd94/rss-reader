@@ -1,3 +1,10 @@
-.tab-content{
-    margin-top: 70px;
+@media (max-width: 767px){
+	.tab-content{
+        margin-top: 70px;
+    }
+}
+@media (min-width: 750px){
+	.tab-content{
+        margin: 70px 0 0 150px;
+    }
 }
