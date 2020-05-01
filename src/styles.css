@@ -40,3 +40,7 @@ ul{
 #button:active {
     background-color: #555; 
 }
+.description img{
+    width: 180px;
+    height: 98px;
+}
