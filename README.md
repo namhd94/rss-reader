@@ -1,5 +1,5 @@
 # RSS Reader
-RSS Reader collects information, news from my favorite newspaper
+RSS Reader collects information, news from my favorite newspapers
 
 ## Table of contents
 * [Technologies](#technologies)
