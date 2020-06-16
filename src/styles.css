@@ -41,6 +41,6 @@ ul{
     background-color: #555; 
 }
 .description img{
-    width: 180px;
-    height: 98px;
+    max-width: 180px;
+    max-height: 98px;
 }
