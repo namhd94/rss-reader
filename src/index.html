@@ -8,6 +8,18 @@
   <meta name="description" content="RSS Reader for your favorite news sources">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   
+  <!-- GitHub Pages redirect script -->
+  <script>
+    // Check if coming from a redirect
+    (function() {
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+  
   <!-- Bootstrap 4 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
   

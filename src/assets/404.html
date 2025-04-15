@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>RSS Reader</title>
+  <script>
+    // Store the URL the user was trying to access
+    sessionStorage.redirect = location.href;
+  </script>
+  <!-- Redirect to the base URL to let Angular routing handle it -->
+  <meta http-equiv="refresh" content="0;URL='/rss-reader/'">
+</head>
+<body>
+  <p>Redirecting to RSS Reader...</p>
+</body>
+</html> 
