@@ -1,23 +1,42 @@
-<header>
-    <div class="container">
-        <div class="wrap-header">
+<header class="bg-dark text-white shadow-sm">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center py-2">
             <div class="header-title">
-                <a class="title" href="#">RSS Reader</a>
+                <a class="title text-white text-decoration-none d-flex align-items-center" href="#">
+                    <i class="fas fa-rss mr-2"></i>
+                    <span class="h4 mb-0">RSS Reader</span>
+                </a>
             </div>
-            <div class="toggle" (click)="toggle($event)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
+            <button class="navbar-toggler d-md-none" type="button" (click)="toggle($event)">
+                <div class="toggle" [ngClass]="{'change': active}">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </button>
         </div>
     </div>
 </header>
-<nav class="nav flex-column nav-pills" [ngClass]="{'active': active}">
-    <ul>
-        <li *ngFor="let item of news">
-            <a class="nav-link {{(item.active) ? 'active' : ''}}" id="{{item.name | lowercase}}-tab" href="#"
-                (click)="getLink(item.link)">{{item.name}}
-            </a>
-        </li>
-    </ul>
-</nav>
+
+<div class="d-flex wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-light" [ngClass]="{'active': active}">
+        <div class="sidebar-header py-3 px-3 border-bottom">
+            <h5 class="mb-0">News Sources</h5>
+        </div>
+        <ul class="list-unstyled mt-2">
+            <li *ngFor="let item of news">
+                <a class="nav-link d-flex align-items-center" 
+                   [ngClass]="{'active': item.active}"
+                   href="#"
+                   (click)="getLink(item.link)">
+                   <i class="fas fa-newspaper mr-2"></i>
+                   {{item.name}}
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Overlay for sidebar on mobile -->
+    <div class="overlay" [ngClass]="{'active': active}" (click)="toggle($event)"></div>
+</div>

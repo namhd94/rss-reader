@@ -1,8 +1,13 @@
-<div class="container">
-  <div class="row">
-      <app-nav></app-nav>
-      <app-content></app-content>
+<div class="app-container">
+  <app-nav></app-nav>
+  <div class="content-wrapper">
+    <app-content></app-content>
   </div>
   
+  <!-- Scroll to top button -->
+  <button class="btn btn-primary scroll-top-btn rounded-circle shadow" 
+          *ngIf="isShow" 
+          (click)="scrollTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 </div>
-<a id="button" *ngIf="isShow" (click)="scrollTop()"></a>
