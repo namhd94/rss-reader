@@ -2,11 +2,25 @@
 
 A modern web application that collects and displays news from various Vietnamese news sources via their RSS feeds. This project provides a clean, responsive interface for browsing news articles from multiple sources.
 
-![RSS Reader Screenshot](https://raw.githubusercontent.com/namhd94/rss-reader/master/src/assets/screenshot.png)
+<!-- Add a screenshot here when available -->
+<!-- ![RSS Reader Screenshot](src/assets/screenshot.png) -->
 
 ## Live Demo
 
 Check out the live application: [https://namhd94.github.io/rss-reader/](https://namhd94.github.io/rss-reader/)
+
+## Application Screenshot
+
+To see the application in action, visit the [live demo](https://namhd94.github.io/rss-reader/) or clone and run the project locally.
+
+### Adding a Screenshot to this README
+
+If you'd like to add a screenshot to this README:
+
+1. Take a screenshot of the application
+2. Save it as `screenshot.png` in the `src/assets/` directory
+3. Uncomment the image markdown in this README
+4. When pushing to GitHub, the image will be displayed
 
 ## Features
 
