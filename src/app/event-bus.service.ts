@@ -16,4 +16,15 @@ export class EventBusService {
     changeItem(item: Feed) {
         this.itemSource.next(item);
     }
+
+    showError() {
+        // Emit an error state that can be used to show an error page
+        const errorFeed: Feed = {
+            status: 'error',
+            feed: null,
+            items: []
+        };
+        this.itemSource.next(errorFeed);
+        return;
+    }
 }

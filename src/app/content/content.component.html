@@ -1,13 +1,32 @@
 <ngx-spinner type="ball-beat">
     <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
-<div class="tab-content" id="tabContent" *ngIf="contents">
-    <div class="tab-pane fade show active" id="vnexpress" *ngFor="let content of contents.items">
-        <div style="margin-bottom:8px;padding-bottom: 50px;">
-            <h3>{{content.title}}</h3>
-            <em>{{content.pubDate}}</em>
-            <p [innerHTML]="content.description" class="description"></p>
-            <a href="{{content.link}}" target="_blank">Read More</a>
+
+<!-- Error message when feed loading fails -->
+<div class="container-fluid pt-3 pb-3">
+    <div class="alert alert-danger rounded shadow-sm" *ngIf="contents && contents.status === 'error'">
+        <h4 class="alert-heading"><i class="fas fa-exclamation-circle mr-2"></i>Unable to load feed</h4>
+        <p class="mb-0">The selected news feed could not be loaded. Please try another news source or try again later.</p>
+    </div>
+
+    <!-- Display contents when feeds load successfully -->
+    <div class="row" *ngIf="contents && contents.status !== 'error' && contents.items && contents.items.length > 0">
+        <div class="col-md-12">
+            <div class="card shadow-sm" *ngFor="let content of contents.items">
+                <div class="card-body">
+                    <h3 class="card-title">{{content.title}}</h3>
+                    <p class="text-muted small mb-2"><i class="fas fa-calendar-alt mr-2"></i>{{content.pubDate | date:'medium'}}</p>
+                    <div [innerHTML]="content.description" class="card-text description mb-3"></div>
+                    <a href="{{content.link}}" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-external-link-alt mr-1"></i> Read More
+                    </a>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- No content message -->
+    <div class="alert alert-info rounded shadow-sm" *ngIf="contents && contents.status !== 'error' && (!contents.items || contents.items.length === 0)">
+        <p class="mb-0"><i class="fas fa-info-circle mr-2"></i>No articles found in this feed.</p>
     </div>
 </div>

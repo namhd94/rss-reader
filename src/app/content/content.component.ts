@@ -20,5 +20,4 @@ export class ContentComponent implements OnInit {
       this.contents = contents;
     });
   }
-
 }

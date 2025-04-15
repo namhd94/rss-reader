@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeedService {
 
-  rssToJsonServiceBaseUrl = 'https://rss2json.com/api.json?rss_url=';
+  rssToJsonServiceBaseUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
+  apiKey = ''; // You can add an API key if needed for higher rate limits
 
   constructor(private http$: HttpClient) { }
 
   getFeedContent(url: string): Observable<any> {
-    return this.http$.get(`${this.rssToJsonServiceBaseUrl + url}`);
+    const apiUrl = `${this.rssToJsonServiceBaseUrl}${url}${this.apiKey ? '&api_key=' + this.apiKey : ''}`;
+    
+    return this.http$.get(apiUrl).pipe(
+      catchError(error => {
+        console.error('Error in feed service:', error);
+        return throwError(error);
+      })
+    );
   }
 }
